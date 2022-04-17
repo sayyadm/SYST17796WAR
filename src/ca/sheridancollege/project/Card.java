@@ -11,15 +11,53 @@ package ca.sheridancollege.project;
  *
  * @author dancye
  */
-public abstract class Card {
+public class Card {
     //default modifier for child classes
+private final Value value;
+private final Suit suit;
+private final String card;
+
+Card(Value value, Suit suit){
+    this.value=value;
+    this.suit=suit;
+    this.card=String.format("%s%s", value.toString(), suit.getSuitName());
+}
+
+public Card(String suit, String rank) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+public Value getValue(){
+   return this.value;
+}
+public Suit getSuit(){
+    return this.suit;
+}
+
+public String getCard(){
+ return this.card;
+}
+
+
+
+
 
     /**
      * Students should implement this method for their specific children classes
      *
      * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
      */
-    @Override
-    public abstract String toString();
+  @Override
+  public String toString(){
+   return this.value.toString() + "of" + this.suit.getSuitName();
+  }
+
+    String getRank() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    int isGreater(Card get) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
 }
